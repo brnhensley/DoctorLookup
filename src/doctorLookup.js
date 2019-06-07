@@ -1,12 +1,10 @@
-export class ClassName
+export class DoctorLookup
 {
-  constructor()
-  {
+  constructor(){
     // this.something = something;
   }
 
-  someFunction()
-  {
+  someFunction(){
     // function code here
   }
 
