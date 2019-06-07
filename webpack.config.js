@@ -28,37 +28,41 @@ module.exports = {
   ],
   module: {
     rules: [{
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
-      },
-      {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          'file-loader'
-        ]
-      },
-      {
-        test: /\.js$/,
-        exclude: [
-          /node_modules/,
-          /spec/
-        ],
-        loader: "eslint-loader"
-      },
-      {
-        test: /\.js$/,
-        exclude: [
-          /node_modules/,
-          /spec/
-        ],
-        loader: "babel-loader",
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        'css-loader'
+      ]
+    },
+    {
+      test: /\.(png|svg|jpg|gif)$/,
+      use: [{
+        loader: 'file-loader',
         options: {
-          presets: ['@babel/preset-env']
-        }
+          name: '[path][name].[ext]',
+        },
+
+      }, ],
+    },
+    {
+      test: /\.js$/,
+      exclude: [
+        /node_modules/,
+        /spec/
+      ],
+      loader: "eslint-loader"
+    },
+    {
+      test: /\.js$/,
+      exclude: [
+        /node_modules/,
+        /spec/
+      ],
+      loader: "babel-loader",
+      options: {
+        presets: ['@babel/preset-env']
       }
+    }
     ]
   }
 };
