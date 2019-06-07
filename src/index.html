@@ -9,7 +9,19 @@
     <div class="jumbotron">
       <h1>Welcome to ze Doctor Looker-Upper!</h1>
     </div>
-    <!-- Code goes here -->
+
+        <form id="drSearch" method="post">
+          <label for="drname">Dr. name:</label><br>
+          <input id="drname" type="text" name="drname">
+          <br>
+          <label for="medissue">Medical issue:</label><br>
+          <input id="medissue" type="text" name="medissue">
+          <br>
+          <button type="submit" name="button" class="btn btn-dark">SEARCH</button>
+        </form>
+        <br>
+        <div id="showDrs"></div>
+
   </div>
 </body>
 </html>
