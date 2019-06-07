@@ -1,3 +1,36 @@
 button {
     margin-top: 10px;
 }
+
+body {
+    background-image: url(pills.png);
+}
+
+h2, footer {
+    text-align: center;
+}
+
+.jumbotron {
+    background: #FFE1EC;
+    border: solid;
+    border-color: black;
+    border-width: 8px;
+}
+
+.pretty {
+    background: #FFE1EC;
+    width: 80%;
+    border: 4px solid black;
+    margin: 2%;
+    padding: 2%;
+}
+
+#error {
+    display: none;
+}
+
+footer {
+    font-weight: lighter;
+    color: lightgray;
+    font-size: 10px;
+}
