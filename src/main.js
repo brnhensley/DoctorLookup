@@ -12,29 +12,30 @@ $(document).ready(function () {
     let medIssue = $('#medissue').val();
     $('#drname').val("");
     $('#medissue').val("");
-    console.log("drName" + drName + " " + "medIssue" + medIssue);
+    // console.log(process.env.API_KEY)
+    console.log("dr Name: ", drName, " ", "med Issue: " + medIssue);
     let doctorLookup = new DoctorLookup;
     let promise = doctorLookup.findDr(drName, medIssue);
     promise.then(function (response) {
       let body = JSON.parse(response);
       console.log(body);
-      if (body.data.length === 0) { // IS THIS DATA AN ARRAY?
+      console.log(body.data.length);
+      console.log(body.data[0].profile.first_name, " ", body.data[0].practices[0].visit_address.street);
+      if (body.data.length === 0) {
         $('#showDrs').text(`There are no doctors in Portland that match the search criteria.`)
       } else {
         body.data.forEach(function (dr) {
           $('#showDrs').append(`${dr.profile.title} ${dr.profile.first_name} ${dr.profile.last_name}<br>
-          ${dr.practices.visit_address.street}<br>
-          ${dr.practices.visit_address.city}, ${dr.practices.visit_address.state} ${dr.practices.visit_address.zip}<br>
-          ${dr.practices.phones.number}<br>
-          <a href='${dr.profile.website}'>${dr.practices.website}</a><br>
-          Accepting new patients: ${dr.practices.accepts_new_patients}<br>
+          ${dr.practices[0].visit_address.street}<br>
+          ${dr.practices[0].visit_address.city}, ${dr.practices[0].visit_address.state} ${dr.practices[0].visit_address.zip}<br>
+          ${dr.practices[0].phones[0].number}<br>
+          <a href='${dr.profile.website}'>${dr.practices[0].website}</a><br>
+          Accepting new patients: ${dr.practices[0].accepts_new_patients}<br>
           ${dr.profile.bio}<hr>`)
         }, function (error) {
-          $('#showError').text(`There was an error processing your request: ${error.message}`);
+          $('#error').text(`There was an error processing your request: ${error.message}`);
         })
       }
     })
   })
 });
-
-`https://api.betterdoctor.com/2016-03-01/doctors?name=${drName}&query=${medIssue}&location=or-portland&sort=first-name-asc&skip=0&limit=10&user_key=${process.env.apiKey}`
