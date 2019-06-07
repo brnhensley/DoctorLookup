@@ -1,42 +1,48 @@
-# Project Name
+# _Doctor Lookup_
 
-#### _JavaScript, 05.31.2019_
+#### _A Doctor Lookup Web App, 6-7-19_
 
-#### By _YourNameHere_
+#### _By Brian Hensley_
 
-## Description
+## _Description_
 
-* _This program does things._
-* _This program also does these things._
-* _See specs below for more detail._
+The Doctor Looker-upper is a web app that will find a list of doctors in the Portland, Oregon area that meet search criteria, from either doctor name, or by medical issue.
 
-## Specs
-| Behavior | Input | Output |
-| ------------- |:-------------:| -----:|
-| If user does this, the program does that | this | that |
-| If user does this, the program does that | this | that |
-| If user does this, the program does that | this | that |
+## _Setup/Installation Requirements_
 
-## Installation and Setup
-* If you don't have it installed, download and install Node.js 12.3.1
-* `$ git clone https://github.com/YourGitHubNameHere/YourGitHubRepositoryNameHere.git` This will clone the repository to your local machine.
-* `$ npm install` This will allow you to have access to the CLI (command line interface) for webpack.
-* `$ npm run build`
-This will automatically build the bundle once. The entry file is `./src/script/index.js`, with production ready code (minified).
-* `$ npm run start`
-This will watch the file changes in `./src` and automatically build the bundle with dev build (not minified). This is a continuous monitoring which can be stopped with the key combination `Ctrl + C` within the terminal.
+* _Clone this repo to your home machine_
+* _run [$ npm init -y] from the app's root folder_
+* _run [$ npm install] from the app's root folder_
+* _go to https://developer.betterdoctor.com/ and sign up for an API key_
+* _create a .env file in the app's root folder and insert "exports.apiKey = [Your API Key goes here]"_
+* _run [$ npm run build] from the app's root folder_
+* _run [$ npm run start] from the app's root folder_
+* _enter a name, medical issue, or both into the input fields to get a list of doctors who can help you_
 
-## Known Bugs
-There are no known bugs as of last update.
 
-## Support and contact details
-_Please contact me at YourEmailHere@gmail.com if you run into any issues or have questions, ideas or feedback._
+## _Specs_
 
-## Technologies Used
-This application was built in Atom using JavaScript, Node.js 12.3.1, jQuery 3.4.1, Bootstrap v4.3.1 and a custom css file. For unit testing, Jasmine framework and Karma task runner are both used.
+|Objectives|example input|example output|
+|-|-|-|
+|It will take a user's search term for Doctor's Name and return matching results|Kevorkian|returns Dr. Kevorkian's contact information|
+|It will take a user's search term for a medical issue and return doctors who can help with that problem|Alopecia|returns list of Alopecia specialists in Portland, Oregon|
+|It will take a user's search term for a medical issue and doctor name then return doctors who can help with that problem that also match the name|Alopecia, Jerry|returns list of Alopecia specialists in Portland, Oregon named Jerry|
 
-### License
 
-*This software is licensed under MIT license.*
+## _Known Bugs_
 
-Copyright (c) 2019 **_YourNameHere_**
+No known bugs
+
+## _Support and contact details_
+
+Create a pull request on GitHub.
+
+## _Technologies Used_
+
+I used Javascript, HTML, CSS, Node, WebPack, and DuckDuckGo to build this program.
+
+### _License_
+
+GPL, keep information free.
+
+Copyright (c) 2019 Brian Hensley
