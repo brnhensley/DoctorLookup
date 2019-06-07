@@ -37,6 +37,4 @@ $(document).ready(function () {
   })
 });
 
-`https://api.betterdoctor.com/2016-03-01/doctors?name=${drName}&location=or-portland&sort=first-name-asc&skip=0&limit=10&user_key=${process.env.apiKey}`
-
-query returns dob.doctor
+`https://api.betterdoctor.com/2016-03-01/doctors?name=${drName}&query=${medIssue}&location=or-portland&sort=first-name-asc&skip=0&limit=10&user_key=${process.env.apiKey}`
