@@ -21,15 +21,19 @@ $(document).ready(function () {
         $('#showDrs').text(`There are no doctors in Portland that match the search criteria.`)
       } else {
         body.data.forEach(function (dr) {
+          if (dr.profile.website === undefined){
+            dr.profile.website = "No Website Data"
+          }
+          console.log(dr.profile.website)
           $('#showDrs').append(`${dr.profile.title} ${dr.profile.first_name} ${dr.profile.last_name}<br>
           ${dr.practices[0].visit_address.street}<br>
           ${dr.practices[0].visit_address.city}, ${dr.practices[0].visit_address.state} ${dr.practices[0].visit_address.zip}<br>
           ${dr.practices[0].phones[0].number}<br>
-          <a href='${dr.profile.website}'>Website: ${dr.profile.website}</a><br>
+          Website: ${dr.profile.website}<br>
           Accepting new patients: ${dr.practices[0].accepts_new_patients}<br>
           ${dr.profile.bio}<hr>`)
         }, function (error) {
-          $('#error').text(`There was an error processing your request: ${error.message}`);
+          $('#error').text(`There was an error processing your request: ${error.message}`)
         })
       }
     })
