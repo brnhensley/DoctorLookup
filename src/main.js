@@ -20,17 +20,25 @@ $(document).ready(function () {
         $('#showDrs').text(`There are no doctors in Portland that match the search criteria.`)
       } else {
         body.data.forEach(function (dr) {
+          let newPatients = "";
+
           if (dr.profile.website === undefined){
             dr.profile.website = "No Website Data"
           }
 
-          $('#showDrs').append(`${dr.profile.title} ${dr.profile.first_name} ${dr.profile.last_name}<br>
-          ${dr.practices[0].visit_address.street}<br>
-          ${dr.practices[0].visit_address.city}, ${dr.practices[0].visit_address.state} ${dr.practices[0].visit_address.zip}<br>
-          ${dr.practices[0].phones[0].number}<br>
-          Website: ${dr.profile.website}<br>
-          Accepting new patients: ${dr.practices[0].accepts_new_patients}<br>
-          ${dr.profile.bio}<hr>`)
+          if (dr.practices[0].accepts_new_patients === true) {
+            newPatients = `${dr.profile.title} ${dr.profile.last_name} is currently accepting new patients.`
+          } else {
+            newPatients = `Unfortunatly ${dr.profile.title} ${dr.profile.last_name} is currently unable to accept new patients.`
+          }
+
+          $('#showDrs').append(`<strong>${dr.profile.title} ${dr.profile.first_name} ${dr.profile.last_name}</strong><br>
+          <p>${dr.practices[0].visit_address.street}<br>
+          ${dr.practices[0].visit_address.city}, ${dr.practices[0].visit_address.state} ${dr.practices[0].visit_address.zip}</p>
+          <p>${dr.practices[0].phones[0].number}<br>
+          Website: ${dr.profile.website}</p>
+          <strong>${newPatients}</strong><br>
+          <p><em>${dr.profile.bio}</em></p><hr>`)
         }, function (error) {
           $('#error').text(`There was an error processing your request: ${error.message}`)
         })
