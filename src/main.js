@@ -24,7 +24,7 @@ $(document).ready(function () {
           if (dr.profile.website === undefined){
             dr.profile.website = "No Website Data"
           }
-          console.log(dr.profile.website)
+
           $('#showDrs').append(`${dr.profile.title} ${dr.profile.first_name} ${dr.profile.last_name}<br>
           ${dr.practices[0].visit_address.street}<br>
           ${dr.practices[0].visit_address.city}, ${dr.practices[0].visit_address.state} ${dr.practices[0].visit_address.zip}<br>
