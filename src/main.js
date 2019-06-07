@@ -12,7 +12,6 @@ $(document).ready(function () {
     let medIssue = $('#medissue').val();
     $('#drname').val("");
     $('#medissue').val("");
-    console.log(process.env.exports.apiKey)
     let doctorLookup = new DoctorLookup;
     let promise = doctorLookup.findDr(drName, medIssue);
     promise.then(function (response) {
